@@ -17,10 +17,10 @@ The SNPs selected are equally distributed across the genome and proportionally t
 We are going to run the script to mask the SNPs of just chromosome 1 in this practical, but you can find out how many SNPs you need to mask to achieve a certain low density panel for all your chromosomes in the tutorial in the above link. 
 
 ```
-#check your working directory path
+#Check your working directory path
 getwd()
-#set your working directory path (where your files are located for this practical)
-setwd("C:/Users/Desktop/Imputation_tutorial")
+#Set your working directory path (where you downloaded the "Masking" folder of this practical)
+setwd("C:/Users/.../Imputation_tutorial/Masking")
 
 #Load the R packages below
 library(DescTools)
@@ -184,7 +184,7 @@ cut -f 3 genotypes_imp.txt | sed '1d' | sed 's/./& /g' | awk '{print NR,$0}' | s
 For the next steps in R, we will need the imputed file with the offspring (genotypes_imp_for_accur_calc.txt) and the true genotypes (genotypes_true_for_accur_calc.txt).
 ```
 #Set your working directory with the path to the folder where you have downloaded the files of "Imputation_accuracy_calc"
-setwd("C:/Users/.../Imputation_tutorial")
+setwd("C:/Users/.../Imputation_tutorial/Imputation_accuracy_calc")
 
 #Calculate correlation between real and imputed data after imputing the first chromosome
 #of the salmon genotypes with FImpute v.3
