@@ -30,13 +30,16 @@ library(tidyverse)
 library(FNN)
 
 #Number of SNPs to select from chromosome 1 for a given low-density panel
-#Read the file with the chromosome start and end bp position. This file has the information just for chromosome 1. You can modify the script and add information for the rest of the chromosomes in the file according to your species.
+#Read the file with the chromosome start and end bp position. This file has the information just for
+#chromosome 1. You can modify the script and add information for the rest of the chromosomes in the
+#file according to your species.
 chr_length<- read.table("scot_salmon_chr_length.txt", header = TRUE)
 head(chr_length)
 #Calculate total map length
 total_length<- sum(chr_length$total_chr_distance)
 #Divide the desired number of SNPs (e.g. 71) in the LD panel with the total map length
-#The number of SNPs (71) was calculated from a file containing information for all chromosomes for a low density panel of 1000 SNPs equally spaced throughout the genome and according to chromosome length.
+#The number of SNPs (71) was calculated from a file containing information for all chromosomes for a
+#low density panel of 1000 SNPs equally spaced throughout the genome and according to chromosome length.
 index<- 71/total_length
 #Multiply the length of each chr with the index above and round 
 n_snp_per_chr<- round(index*chr_length$total_chr_distance, 0)
@@ -49,14 +52,16 @@ head(snpmap)
 #split snpmap to chromosomes (the output from split() is a list)
 chr_list = split(snpmap, snpmap$Chr)
 
-#Take each chromosome and divide it's length into equally distanced parts (equidistant positions), according to the number of snps we want to select (LD)
+#Take each chromosome and divide it's length into equally distanced parts (equidistant positions),
+#according to the number of snps we want to select (LD)
 #These equidistant theoretical positions will be then used to find the nearest real position on the map  
 b_chr<- list()
 for (i in 1:length(chr_length$chr)) {
   b_chr[[i]]<- round(seq(chr_length$first_SNP[i], chr_length$last_SNP[i], length.out = n_snp_per_chr[i]), digits = 0)
 }
 
-#Check that the length of the list for each chromosome equals the number of SNPs we want to keep for this chromosome
+#Check that the length of the list for each chromosome equals the number of SNPs we want to keep
+#for this chromosome
 for (i in 1:length(chr_length$chr)){
   print(length(b_chr[[i]]))
 } 
@@ -78,7 +83,8 @@ for (i in 1:length(b_chr[[1]])) {
 }
 
 
-#The genotype files must be split per chromosome (just genotypes in the format of 0/1/2) and individuals should be reordered so that all the parents are at the beginning (rows 1-87)
+#The genotype files must be split per chromosome (just genotypes in the format of 0/1/2) and individuals
+#should be reordered so that all the parents are at the beginning (rows 1-87)
 #Read the genotype files per chromosome for all individuals
 geno_file_names <- list.files(pattern= glob2rx("salmon_chr*"))
 geno_file_names
@@ -88,7 +94,8 @@ nrow(salmon_pf_chr[[1]])
 #number of SNPs
 ncol(salmon_pf_chr[[1]])
 
-#Mask all the SNPs of the offspring (rows 86-606 of the genotype file) that are not specified in s1 and write them in a separate file for each chromosome. 
+#Mask all the SNPs of the offspring (rows 86-606 of the genotype file) that are not specified in s1
+#and write them in a separate file for each chromosome. 
 masking <- list()
 masked_salmon_chr<- list()
 m<- list()
@@ -176,7 +183,8 @@ For the next steps in R, we will need the imputed file with the offspring (genot
 #Set your working directory with the path to the folder where you have your files saved after imputation
 setwd("C:/Users/.../Imputation_tutorial")
 
-#Calculate correlation between real and imputed data after imputing the first chromosome of the salmon genotypes with FImpute v.3
+#Calculate correlation between real and imputed data after imputing the first chromosome
+#of the salmon genotypes with FImpute v.3
 # standardized method
 accur_fimpute <- imputation_accuracy('genotypes_true_for_accur_calc.txt', 'genotypes_imp_for_accur_calc.txt', na= 5)
 round(accur_fimpute[["matcor"]], digits = 3)
