@@ -1,0 +1,192 @@
+Mon Jun 12 15:58:38 2023
+Licensee: 1650023536-388416-DHDSDJDDDBDFDHDQDI-EGEIDYEACBEFCECECCEGEFEHEKCHELELCKEKENCNFHEY
+DISCLAIMER - FImpute software is distributed "AS IS" solely for "ACADEMIC" use.
+The author and his organizations will not be liable for any general, special,
+incidental or consequential damages arising from the use of FImpute.
+By the use of this software the user agrees to bear all risk resulting from
+using the software.
+ .------------------------------------. 
+|      _   _   _   _   _   _   _       |
+|     / \ / \ / \ / \ / \ / \ / \      |
+|    ( F   I   m   p   u   t   e )     |
+|     \_/ \_/ \_/ \_/ \_/ \_/ \_/      |
+|                                      |
+|             Version 3.0              |
+|  Mehdi Sargolzaei & Flavio Schenkel  |
+|       HiggsGene Solutions Inc.       |
+|         University of Guelph         |
+|                                      |
+|           User: U_UNKNOWN            |
+|    Licensee: The Roslin Institute    |
+|         - Academic version -         |
+|                                      |
+|      Last update: Dec 10, 2018       |
+ `------------------------------------' 
+Expiry date: 2024/08/01
+----------------------------------------------------------------------
+Command                     : FImpute3
+Working folder              : /exports/eddie3_homes_local/s1899268/SALMON_TUTORIAL
+sys info                    : U_UNKNOWN @ node1h21.ecdf.ed.ac.uk
+CPU                         : 64 cores
+RAM                         : 1007.04 GB
+----------------------------------------------------------------------
+ .---------------------------------------------. 
+|  salmon family + population genotype impu...  |
+ `---------------------------------------------' 
+
+Control file                      : "control_file.txt"
+Output folder                     : "salmon_output/"
+
+------------------------------- Files --------------------------------
+Pedigree                          : "salmon_ped.txt"
+SNP info                          : "snp_info.txt"
+Genotypes                         : "masked_salmon_chr1_fimpute.txt"
+Output folder                     : "salmon_output/"
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Warning - Call rate is <85% for individual "L2M20325" in "masked_salmon_chr1_fimpute.txt" (chip=1, CR=0.0160488)
+
+------------------------------ Pedigree ------------------------------
+No. individuals in pedigree                   : 606 (296 M, 57 F, 253 U)
+No. sires                                     : 29
+No. dams                                      : 57
+No. individuals with progeny                  : 86
+No. individuals with no progeny               : 520
+No. individuals with only known sire          : 0
+No. individuals with only known dam           : 0
+No. individuals with known sire and dam       : 520
+No. founders                                  : 86
+------------------------------------------------------------- 00:00:00
+
+606 individuals found in genotype file(s).
+------------------------------------------------------------- 00:00:00
+
+-------------------------------- SNP ---------------------------------
+No. chromosomes                               : 1
+No. SNP in total                              : 4424
+No. SNP excluded                              : 0
+No. SNP considered                            : 4424
+No. chip(s) in total                          : 2
+No. chip(s)                                   : 2
+HD chip                                       : chip 1
+
+No. SNP on chip (off diags are SNP in common)
+Chip   1    2  
+ 1    4424
+ 2      71   71
+
+Squared correlation between allele frequencies among chips
+Chip      1     2
+   1  1.000
+   2  0.997 1.000
+----------------------------------------------------------------------
+
+----------------------------- Chromosome -----------------------------
+Chr        Length(MB) No. SNP
+                          Chip 1     Chip 2 
+1            158.98       4424         71
+Overall      158.98       4424         71
+----------------------------------------------------------------------
+
+----------------------------- Genotypes ------------------------------
+Reading genotype file(s) ...
+No. genotype files                            :  1
+No. records in genotype file(s)               :  606
+No. records read in                           :  606
+------------------------------------------------------------- 00:00:00
+
+---------------------------- Individuals -----------------------------
+Chip            No.        Male      Female    Missing%
+1                86          29          57       1.27
+2               520         267         253      98.40
+Overall         606         296          57
+----------------------------------------------------------------------
+
+----------------- Parentage verification & discovery -----------------
+Chip                                          : chip1
+No. SNP                                       : 4424
+No. genotyped individuals                     : 606
+Error rate threshold for verification         : 0.05
+No. progeny-parent mismatches                 : 0
+No. pseudo parents detected                   : 18 [18, 0, 0]
+------------------------------------------------------------- 00:00:00
+
+----------------------------- Parameters -----------------------------
+Method : Family + Population
+
+Family
+  Min no. progeny for phasing                 : 2
+  Pedigree depth                              : 10
+  Phasing iterations                          : 7
+
+Population
+  No. reference individuals                   : 86 (29 M, 57 F)
+  No. target individuals                      : 520 (267 M, 253 F) + ref
+  Sliding windows
+    Shrink factor                             : 0.150 0.150
+    Overlap                                   : 0.650 0.650
+----------------------------------------------------------------------
+
+Imputing... (No. jobs = 1 - No. cores being used = 51)
+Chromosome  1 done.
+------------------------- Genotyping errors --------------------------
+No. SNP with error                  :       9 out of 4424
+Mendelian errors                    :  0.0026% (69)
+Genotypes updated to missing        :  0.0026% (69)
+----------------------------------------------------------------------
+
+------------------------------- Report -------------------------------
+No. genotyped individuals           : 606
+No. SNP                             : 4424
+No. chromosomes                     : 1
+Heterozygous loci                   : 12.1178%
+       uncertain phase              :  5.6526%
+Missing                             : 84.6175%
+Infered                             : 84.5268%
+       Allele freq fill-in          :  0.0000%
+Missing remaining                   :  0.0906%
+----------------------------------------------------------------------
+
+---------------- Genotyping errors (after imputation) ----------------
+No. SNP with error                  :     105 out of 4424
+Mendelian errors                    :  0.0075% (200)
+Genotypes updated to missing        :  0.0000% (0)
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Squared correlation between allele frequencies among chips for all SNPs
+Chip      1     2
+   1  1.000
+   2  0.996 1.000
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Group             No.    Missing
+Chip1              86     0.003%
+Chip2             520     0.105%
+Reference          86     0.003%
+Target            520     0.105%
+Overall           606     0.091%
+----------------------------------------------------------------------
+
+---- Largest changes in original genotypes during imputation (%) -----
+ID                             Chip Change%
+B322_0375                      2     2.817% - Warning - Original genotypes were kept.
+B322_0283                      2     2.817% - Warning - Original genotypes were kept.
+B322_0189                      2     1.408% - Warning - Original genotypes were kept.
+B322_0137                      2     1.408% - Warning - Original genotypes were kept.
+B322_0111                      2     1.408% - Warning - Original genotypes were kept.
+B322_0083                      2     1.408% - Warning - Original genotypes were kept.
+B322_0042                      2     1.408% - Warning - Original genotypes were kept.
+B322_0009                      2     1.408% - Warning - Original genotypes were kept.
+B322_0538                      2     1.408% - Warning - Original genotypes were kept.
+B322_0001                      2     1.408% - Warning - Original genotypes were kept.
+More...  Check "salmon_output/org_vs_imp.txt"
+----------------------------------------------------------------------
+Overall time : 00:00:06
+
+Completed.
+
+11 warnings!
+Check the warnings in "salmon_output/report.txt".

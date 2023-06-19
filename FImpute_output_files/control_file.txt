@@ -1,0 +1,12 @@
+title = "salmon family + population genotype imputation";
+genotype_file = "masked_salmon_chr1_fimpute.txt";
+snp_info_file="snp_info.txt";
+ped_file="salmon_ped.txt";
+output_folder="salmon_output";
+write_ref_target;
+turnoff_random_fill;
+keep_og;
+parentage_test /ert_mm=0.05 /find_match_cnflt/remove_conflict;
+ref = 86 /parent;
+save_genotype;
+save_hap_lib /diplotype;

@@ -1,0 +1,12 @@
+--------------------------- Parentage Test ---------------------------
+Error rate threshold for mismatch   : 0.05
+Error rate threshold for match      : 0.005
+A: individual call rate
+B: Sire call rate
+C: Dam call rate
+D: No. Mendelian inconsistencies
+E: No. loci compared
+
+ID                   Sire                 Dam                  Check  A      B      C      D       E       Possible match       D       E      
+None
+

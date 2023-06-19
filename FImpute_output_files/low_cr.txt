@@ -1,0 +1,2 @@
+ID	Chip	NoSNP	Call rate
+L2M20325	1	4424	0.0160488
