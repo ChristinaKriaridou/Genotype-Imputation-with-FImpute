@@ -110,8 +110,8 @@ for (i in 1:length(chr_length$chr)) {
               row.names = FALSE, col.names = FALSE)
 }
 ```
+After we masked the SNPs in the first chromosome of the Atlantic salmon dataset (71 SNPs remained unmasked out of 4424), we remove the spaces between the genotypes. Then we add the individual IDs, the chip info for each individual and the header to create the inpute file for FImpute.
 ```
-#After we masked the SNPs in the first chromosome of the Atlantic salmon dataset (71 SNPs remained unmasked out of 4424), we remove the spaces between the genotypes. Then we add the individual IDs, the chip info for each individual and the header to create the inpute file for FImpute.
 sed 's/ //g' masked_salmon_chr1.txt | paste ids_chip_606.txt - | sed '1i ID Chip Genotypes' > masked_salmon_chr1_fimpute.txt
 ```
 
@@ -135,6 +135,7 @@ This is a simple file with options and file names. There are many more options i
 
 ## 5. RUNNING THE APPLICATION
 FImpute [control filename] -o
+
 If control file name is not specified, the program will prompt the user to enter it. Option –o forces the program to overwrite output folder if it already exists. 
 
 ## 6. OUTPUT FILES
