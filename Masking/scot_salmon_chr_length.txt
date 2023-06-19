@@ -1,0 +1,3 @@
+chr	first_SNP	last_SNP	total_chr_distance	SNPs/chrom
+chr1	43696	159020971	158977275	4424
+
