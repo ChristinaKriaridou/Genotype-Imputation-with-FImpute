@@ -202,7 +202,7 @@ write.table(corr_snps, file = "salmon_fi_corr_per_snp.txt", sep = " ",
             row.names = TRUE, col.names =FALSE , quote=FALSE)
 ```
 
-## 8. PLOT IMPUTATION ACCURACY BY SNP AND INDIVIDUAL
+## 8. PLOT IMPUTATION ACCURACY PER SNP AND INDIVIDUAL
 library(ggplot2)
 library(dplyr)
 
