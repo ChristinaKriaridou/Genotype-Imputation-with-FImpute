@@ -183,7 +183,7 @@ cut -f 3 genotypes_imp.txt | sed '1d' | sed 's/./& /g' | awk '{print NR,$0}' | s
 ```
 For the next steps in R, we will need the imputed file with the offspring (genotypes_imp_for_accur_calc.txt) and the true genotypes (genotypes_true_for_accur_calc.txt).
 ```
-#Set your working directory with the path to the folder where you have your files saved after imputation
+#Set your working directory with the path to the folder where you have downloaded the files of "Imputation_accuracy_calc"
 setwd("C:/Users/.../Imputation_tutorial")
 
 #Calculate correlation between real and imputed data after imputing the first chromosome
