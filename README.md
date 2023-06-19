@@ -20,7 +20,7 @@ We are going to run the script to mask the SNPs of just chromosome 1 in this pra
 #check your working directory path
 getwd()
 #set your working directory path (where your files are located for this practical)
-setwd("C:/Users/S1899268/Desktop")
+setwd("C:/Users/Desktop/Imputation_tutorial")
 
 #Load the R packages below
 library(DescTools)
