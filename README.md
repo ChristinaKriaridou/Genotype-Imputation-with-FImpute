@@ -125,6 +125,7 @@ sed 's/ //g' masked_salmon_chr1.txt | paste ids_chip_606.txt - | sed '1i ID Chip
 ## 4. FIMPUTE INPUT FILE FORMATS
 ### i. Map file
 The map file contains information for each SNP present in the dataset. The columns of this file are: (1) SNP name, (2) chromosome number, (3) bp position, (4) chip position. For example, chip 2 may be a lower-density panel and SNP number 1 will start at the equivalent of SNP 20 in chip 1. This will change based on the common SNPs you have on the panels.
+
 ![image](https://github.com/ChristinaKriaridou/Genotype-Imputation-with-FImpute/assets/74717500/f6697f3d-05d5-4d84-9d6d-162952ab5510)
 
 ### ii. Genotype file
@@ -137,14 +138,16 @@ The pedigree file provides family information for each individual in the genotyp
 ![image](https://github.com/ChristinaKriaridou/Genotype-Imputation-with-FImpute/assets/74717500/cf8006af-b79f-4779-997f-7ddfa249cfca)
 
 ### iv. Parameter file settings
-This is a simple file with options and file names. There are many more options in the documentation.
+This is a simple control file with options and file names. There are many more options in the documentation.
 ![image](https://github.com/ChristinaKriaridou/Genotype-Imputation-with-FImpute/assets/74717500/f005244a-007c-42fd-9a66-c997c27d688b)
 
 ## 5. RUNNING THE APPLICATION
 FImpute [control filename] -o
 
 If control file name is not specified, the program will prompt the user to enter it. Option –o forces the program to overwrite output folder if it already exists. 
-
+```
+FImpute control_file.txt -o
+```
 ## 6. OUTPUT FILES
 Some of the important output files you can check are:
 
