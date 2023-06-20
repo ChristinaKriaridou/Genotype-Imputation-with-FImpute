@@ -193,18 +193,44 @@ accur_fimpute <- imputation_accuracy('genotypes_true_for_accur_calc.txt', 'genot
 round(accur_fimpute[["matcor"]], digits = 3)
 
 # Pearson correlation between true and imputed genotypes per animal and SNP.
-corr_animals<- accur_fimpute[["animals"]][["cors"]]
+corr_animals<- as.data.frame(accur_fimpute[["animals"]][["cors"]])
 write.table(corr_animals, file = "salmon_corr_per_animal.txt", sep = " ",
             row.names = TRUE, col.names =FALSE, quote = FALSE)
+colnames(corr_animals)[1]  <- "correlation"
 
-corr_snps<- accur_fimpute[["snps"]][["cors"]]
-write.table(corr_snps, file = "salmon_fi_corr_per_snp.txt", sep = " ",
+corr_snps<- as.data.frame(accur_fimpute[["snps"]][["cors"]])
+write.table(corr_snps, file = "testsalmon_corr_per_snp.txt", sep = " ",
             row.names = TRUE, col.names =FALSE , quote=FALSE)
+colnames(corr_snps)[1]  <- "correlation"
 ```
 
 ## 8. PLOT IMPUTATION ACCURACY PER SNP AND INDIVIDUAL
+Plot correlation per SNP:
+```
+#Load the ggplot library
 library(ggplot2)
-library(dplyr)
+
+#Read the "snp_info.txt" file from the  "FImpute_output_files" folder (change the path in the command below accordingly)
+snp_info <- read.delim("C:/Users/S1899268/Desktop/Imputation_tutorial/FImpute_output_files/snp_info.txt")
+#Add the correlation column to the snp_info data frame
+snp_info$correlation <- corr_snps$correlation
+#save separately the imputed and non imputed SNPs
+non_imputed_snps<- snp_info[snp_info$chip_2 > 0,]
+imputed_snps<- snp_info[snp_info$chip_2 == 0,]
+
+#Plot the correlation for the imputed (black dots) and non imputed SNPs (blue dots) with ggplot
+theme_set(theme_bw())
+figure <- ggplot(imputed_snps, aes(BPPos, correlation)) + #geom_smooth(method = "loess", span=0.025, se=FALSE, size=1) + 
+  geom_point(size=0.5) + ggtitle(paste("Imputation of chromosome 1 with FImpute v.3")) + xlab ("Position (bp)") + ylab ("Correlation")+
+  theme(plot.title = element_text(hjust = 0.5))
+figure2 <- figure + geom_point(data=non_imputed_snps, col="blue", size=1.5) + 
+  ylim(c(0, 1.01))
+
+#Save the graph in a pdf
+pdf("plot_correlation_per_snp.pdf", width=10,height=7)
+print(figure2)
+dev.off()
+```
 
 
 ## 9. POST-IMPUTATION FILTERING
