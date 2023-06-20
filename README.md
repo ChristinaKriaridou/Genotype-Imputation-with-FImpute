@@ -220,18 +220,47 @@ imputed_snps<- snp_info[snp_info$chip_2 == 0,]
 
 #Plot the correlation for the imputed (black dots) and non imputed SNPs (blue dots) with ggplot
 theme_set(theme_bw())
-figure <- ggplot(imputed_snps, aes(BPPos, correlation)) + #geom_smooth(method = "loess", span=0.025, se=FALSE, size=1) + 
-  geom_point(size=0.5) + ggtitle(paste("Imputation of chromosome 1 with FImpute v.3")) + xlab ("Position (bp)") + ylab ("Correlation")+
+figure <- ggplot(imputed_snps, aes(BPPos, correlation)) +
+  geom_point(size=0.5) + ggtitle(paste("Imputation of chromosome 1 with FImpute v.3")) + 
+  xlab ("Position (bp)") + ylab ("Correlation")+
   theme(plot.title = element_text(hjust = 0.5))
 figure2 <- figure + geom_point(data=non_imputed_snps, col="blue", size=1.5) + 
   ylim(c(0, 1.01))
+figure2
 
 #Save the graph in a pdf
 pdf("plot_correlation_per_snp.pdf", width=10,height=7)
 print(figure2)
 dev.off()
 ```
+This is the graph of the accuracy per SNP for chromosome 1:
+![correlation_per_snp](https://github.com/ChristinaKriaridou/Genotype-Imputation-with-FImpute/assets/74717500/7f927c08-9b33-405b-97b3-920d09f73bba)
 
+Now plot correlation per individual:
+```
+#Read the "offspring_ids.txt" file with the offspring individual ids from the "FImpute_output_files" that you have downloaded
+off_ids<- read.table("C:/Users/S1899268/Desktop/Imputation_tutorial/FImpute_output_files/offspring_ids.txt")
+#Add the correlation column to the "off_ids" data frame
+off_ids$correlation <- corr_animals$correlation
+#Sort individuals by correlation column
+accur_per_animal<- off_ids[order(off_ids$correlation),]
+accur_per_animal$V1 = factor(accur_per_animal$V1, levels=accur_per_animal[order(accur_per_animal$correlation), "V1"])
+
+#Plot correlation per individual
+theme_set(theme_bw())
+figure3 <- ggplot(accur_per_animal, aes(V1, correlation)) + 
+  geom_point(size=0.5) + ggtitle(paste("Imputation per individual with FImpute v.3")) + 
+  xlab ("Individual ID") + ylab ("Correlation")+
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ylim(c(0, 1))
+figure3
+
+#Save the graph in a pdf
+pdf("plot_correlation_per_individual.pdf", width=10,height=7)
+print(figure3)
+dev.off()
+```
+![correlation_per_individual](https://github.com/ChristinaKriaridou/Genotype-Imputation-with-FImpute/assets/74717500/4a692ded-2334-47b7-b56f-352c5b54452a)
 
 ## 9. POST-IMPUTATION FILTERING
 It is standard practice to perform additional filtering once imputation run has completed. This is mainly to remove poorly imputed variants that might behave badly in association tests. Here, after imputation we filtered for MAF (< 0.05) with PLINK v.1.9 (Purcell et al., 2007).
