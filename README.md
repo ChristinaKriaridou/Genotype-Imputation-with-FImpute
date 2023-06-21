@@ -155,15 +155,15 @@ Some of the important output files you can check are:
 
 - **genotypes_imp.txt**: this file contains the imputed genotypes for all individuals.
 
-**parentage_test.txt**: this file is produced by the parentage test option in the control file and checks for parentage errors. It contains information about individual call rate, sire call rate, dam call rate, no. Mendelian inconsistencies, no. loci compared and a possible match for the parents.
+- **parentage_test.txt**: this file is produced by the parentage test option in the control file and checks for parentage errors. It contains information about individual call rate, sire call rate, dam call rate, no. Mendelian inconsistencies, no. loci compared and a possible match for the parents.
 
-**stat_snp.txt**: reports statistics on SNPs: SNP ID, chromosome number, positions, call frequencies, missing rate and minor allele frequency. 
+- **stat_snp.txt**: reports statistics on SNPs: SNP ID, chromosome number, positions, call frequencies, missing rate and minor allele frequency. 
 
-**stat_snp_imp.txt**: reports statistics on SNPs after imputation.
+- **stat_snp_imp.txt**: reports statistics on SNPs after imputation.
 
-**stat_anim.txt**: Reports statistics on individuals' genotypes: ID, chip number, call frequencies, homozygosity and missing rate. Missing calls are ignored for statistics on homozygosity and calls 0, 1 and 2. 
+- **stat_anim.txt**: Reports statistics on individuals' genotypes: ID, chip number, call frequencies, homozygosity and missing rate. Missing calls are ignored for statistics on homozygosity and calls 0, 1 and 2. 
 
-**stat_anim_imp.txt**: Reports statistics on individuals' genotypes after imputation
+- **stat_anim_imp.txt**: Reports statistics on individuals' genotypes after imputation
 
 ## 7. IMPUTATION ACCURACY
 To calculate imputation accuracy (i.e. correlation between two genotype matrices) we are going to use a package called Siccuracy. Load the package in R with: 
