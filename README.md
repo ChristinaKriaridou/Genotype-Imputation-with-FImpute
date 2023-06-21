@@ -151,9 +151,9 @@ FImpute control_file.txt -o
 ## 6. OUTPUT FILES
 Some of the important output files you can check are:
 
-**report.txt**: detailed report on the steps carried out by the software.
+- **report.txt**: detailed report on the steps carried out by the software.
 
-**genotypes_imp.txt**: this file contains the imputed genotypes for all individuals.
+- **genotypes_imp.txt**: this file contains the imputed genotypes for all individuals.
 
 **parentage_test.txt**: this file is produced by the parentage test option in the control file and checks for parentage errors. It contains information about individual call rate, sire call rate, dam call rate, no. Mendelian inconsistencies, no. loci compared and a possible match for the parents.
 
