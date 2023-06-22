@@ -194,7 +194,7 @@ After imputation we remove the header, the parents and add spaces between the im
 ```
 cut -f 3 genotypes_imp.txt | sed '1d' | sed 's/./& /g' | awk '{print NR,$0}' | sed '1,86d' > genotypes_imp_for_accur_calc.txt
 ```
-For the next steps in R, we will need the imputed file with the offspring (genotypes_imp_for_accur_calc.txt) and the true genotypes (genotypes_true_for_accur_calc.txt).
+For the next steps in R, we will need the imputed file with the offspring (genotypes_imp_for_accur_calc.txt) and the true genotypes (genotypes_true_for_accur_calc.txt) from "Imputation_accuracy_calc" folder.
 ```
 #Set your working directory with the path to the folder where you have downloaded the files of "Imputation_accuracy_calc"
 setwd("C:/Users/.../Imputation_tutorial/Imputation_accuracy_calc")
