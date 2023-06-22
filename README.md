@@ -1,5 +1,5 @@
 # Genotype-Imputation-with-FImpute
-Imputation for genomic selection and GWAS practical as part of the AquaIMPACT training course on Genomic Innovations for Aquaculture Breeding (27th June 2023 - Block 2).
+Imputation for genomic selection and GWAS practical as part of the AquaIMPACT training course on Genomic Innovations for Aquaculture Breeding (27th June 2023, Wageningen - Block 2).
 * [1. DATA](#1-data)
 * [2. PRE-IMPUTATION FILTERING OF STUDY GENOTYPES](#2-pre-imputation-filtering-of-study-genotypes)
 * [3. MASK SNPs PROPORTIONALY TO CHROMOSOME LENGTH AND EQUALLY SPACED](#3-mask-snps-proportionaly-to-chromosome-length-and-equally-spaced)
