@@ -1,6 +1,19 @@
 # Genotype-Imputation-with-FImpute
 Imputation for genomic selection and GWAS practical as part of the AquaIMPACT training course on Genomic Innovations for Aquaculture Breeding (27th June 2023 - Block 2).
-
+* [1. DATA](#1-data)
+  * [2. PRE-IMPUTATION FILTERING OF STUDY GENOTYPES](#2-pre-imputation-filtering-of-study-genotypes)
+  * [3. MASK SNPs PROPORTIONAL TO CHROMOSOME LENGTH AND EQUALLY SPACED](#3-mask-snps-proportional-to-chromosome-length-and-equally-spaced)
+  * [4. FIMPUTE INPUT FILE FORMATS](#4-fimpute-input-file-formats)
+    + [i. Map file](#i-map-file)
+    + [ii. Genotype file](#ii-genotype-file)
+    + [iii. Pedigree file](#iii-pedigree-file)
+    + [iv. Parameter file settings](#iv-parameter-file-settings)
+  * [5. RUNNING THE APPLICATION](#5-running-the-application)
+  * [6. OUTPUT FILES](#6-output-files)
+  * [7. IMPUTATION ACCURACY](#7-imputation-accuracy)
+  * [8. PLOT IMPUTATION ACCURACY PER SNP AND INDIVIDUAL](#8-plot-imputation-accuracy-per-snp-and-individual)
+  * [9. POST-IMPUTATION FILTERING](#9-post-imputation-filtering)
+  
 ## 1. DATA
 For this tutorial, we are going to use the first chromosome of an Atlantic salmon dataset previously published here: https://doi.org/10.1186/s12864-015-2117-9.
 
@@ -9,8 +22,8 @@ Before you perform an imputation run with your study genotypes, you should filte
 The dataset in this practical was filtered with PLINK v.1.9 (Purcell et al., 2007). Individuals with just one of their two parents genotyped or > 20% missing genotypes were excluded from the analysis. SNPs with > 10% missing genotypes; significant deviation from Hardy–Weinberg Equilibrium (P-value < 10−6); MAF < 0.05; or Mendelian error rates > 10% were also excluded from subsequent imputation analyses.
 After filtering 606 individuals and 78,035 SNPs remained in the dataset. The first chromosome that we are going to use consists of 4,424 SNPs.
 
-## 3. MASK A CERTAIN NUMBER OF SNPs PROPORTIONAL TO CHR LENGTH AND EQUALLY SPACED
-To mask a certain number of SNPs on chromosome 1 (that we are going to later impute), we will use the code in this repository:
+## 3. MASK SNPs PROPORTIONAL TO CHROMOSOME LENGTH AND EQUALLY SPACED
+To mask a certain number of SNPs on chromosome 1 (that we are going to impute later), we will use the code in this repository:
 https://github.com/Roslin-Aquaculture/Select-SNPs-to-generate-low-density-panels.
 
 The SNPs selected are equally distributed across the genome and proportionally to chromosome length. Additionally, this script always selects the first and the last SNP of each chromosome.
