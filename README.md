@@ -222,11 +222,11 @@ Plot correlation per SNP:
 #Load the ggplot library
 library(ggplot2)
 
-#Read the "snp_info.txt" file from the  "FImpute_output_files" folder (change the path in the command below accordingly)
-snp_info <- read.delim("C:/Users/S1899268/Desktop/Imputation_tutorial/FImpute_output_files/snp_info.txt")
+#Read the "snp_info.txt" file from the  "Imputation_accur_calc" folder (change the path in the command below according to where you downloaded the files)
+snp_info <- read.delim("C:/Users/S1899268/Desktop/Imputation_tutorial/Imputation_accur_calc/snp_info.txt")
 #Add the correlation column to the snp_info data frame
 snp_info$correlation <- corr_snps$correlation
-#save separately the imputed and non imputed SNPs
+#Save separately the imputed and non imputed SNPs
 non_imputed_snps<- snp_info[snp_info$chip_2 > 0,]
 imputed_snps<- snp_info[snp_info$chip_2 == 0,]
 
@@ -240,7 +240,7 @@ figure2 <- figure + geom_point(data=non_imputed_snps, col="blue", size=1.5) +
   ylim(c(0, 1.01))
 figure2
 
-#Save the graph in a pdf
+#Save the graph in a pdf format (the file will be saved in the folder you have set your working directory)
 pdf("plot_correlation_per_snp.pdf", width=10,height=7)
 print(figure2)
 dev.off()
