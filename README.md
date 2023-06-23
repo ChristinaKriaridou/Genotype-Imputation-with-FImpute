@@ -155,11 +155,11 @@ This is a simple control file with options and file names. There are many more o
 ![image](https://github.com/ChristinaKriaridou/Genotype-Imputation-with-FImpute/assets/74717500/f005244a-007c-42fd-9a66-c997c27d688b)
 
 ## 5. RUNNING THE APPLICATION
-FImpute [control filename] -o
+FImpute3 [control filename] -o
 
 If control file name is not specified, the program will prompt the user to enter it. Option –o forces the program to overwrite output folder if it already exists. 
 ```
-FImpute control_file.txt -o
+FImpute3 control_file.txt -o
 ```
 ## 6. OUTPUT FILES
 Some of the important output files you can check are:
