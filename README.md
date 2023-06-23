@@ -203,12 +203,13 @@ setwd("C:/Users/.../Imputation_tutorial/Imputation_accuracy_calc")
 accur_fimpute <- imputation_accuracy('genotypes_true_for_accur_calc.txt', 'genotypes_imp_for_accur_calc.txt', na= 5)
 round(accur_fimpute[["matcor"]], digits = 3)
 
-# Pearson correlation between true and imputed genotypes per animal and SNP.
+# Pearson correlation between true and imputed genotypes per animal
 corr_animals<- as.data.frame(accur_fimpute[["animals"]][["cors"]])
 write.table(corr_animals, file = "salmon_corr_per_animal.txt", sep = " ",
             row.names = TRUE, col.names =FALSE, quote = FALSE)
 colnames(corr_animals)[1]  <- "correlation"
 
+# Pearson correlation between true and imputed genotypes per SNP
 corr_snps<- as.data.frame(accur_fimpute[["snps"]][["cors"]])
 write.table(corr_snps, file = "testsalmon_corr_per_snp.txt", sep = " ",
             row.names = TRUE, col.names =FALSE , quote=FALSE)
