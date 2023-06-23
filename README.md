@@ -222,7 +222,8 @@ Plot correlation per SNP:
 #Load the ggplot library
 library(ggplot2)
 
-#Read the "snp_info.txt" file from the  "Imputation_accur_calc" folder (change the path in the command below according to where you downloaded the files)
+#Read the "snp_info.txt" file from the  "Imputation_accur_calc" folder
+#Change the path in the command below according to where you downloaded the files
 snp_info <- read.delim("C:/Users/S1899268/Desktop/Imputation_tutorial/Imputation_accur_calc/snp_info.txt")
 #Add the correlation column to the snp_info data frame
 snp_info$correlation <- corr_snps$correlation
