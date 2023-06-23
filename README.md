@@ -194,14 +194,12 @@ After imputation we remove the header, the parents and add spaces between the im
 ```
 cut -f 3 genotypes_imp.txt | sed '1d' | sed 's/./& /g' | awk '{print NR,$0}' | sed '1,86d' > genotypes_imp_for_accur_calc.txt
 ```
-For the next steps in R, we will need the imputed file with the offspring (genotypes_imp_for_accur_calc.txt) and the true genotypes (genotypes_true_for_accur_calc.txt) from "Imputation_accuracy_calc" folder.
+For the next steps in R, we will need the imputed genotype file of the offspring (genotypes_imp_for_accur_calc.txt) and the true genotypes (genotypes_true_for_accur_calc.txt) from "Imputation_accuracy_calc" folder.
 ```
 #Set your working directory with the path to the folder where you have downloaded the files of "Imputation_accuracy_calc"
 setwd("C:/Users/.../Imputation_tutorial/Imputation_accuracy_calc")
 
-#Calculate correlation between real and imputed data after imputing the first chromosome
-#of the salmon genotypes with FImpute v.3
-# standardized method
+#Calculate correlation between real and imputed data after imputing the first chromosome of the salmon genotypes with FImpute v.3
 accur_fimpute <- imputation_accuracy('genotypes_true_for_accur_calc.txt', 'genotypes_imp_for_accur_calc.txt', na= 5)
 round(accur_fimpute[["matcor"]], digits = 3)
 
