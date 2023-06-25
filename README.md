@@ -252,7 +252,7 @@ This is the graph of the accuracy per SNP for chromosome 1:
 Now plot correlation per individual:
 ```
 #Read the "offspring_ids.txt" file with the offspring individual ids from the "FImpute_output_files" that you have downloaded
-off_ids<- read.table("C:/Users/S1899268/Desktop/Imputation_tutorial/FImpute_output_files/offspring_ids.txt")
+off_ids<- read.table("C:/Users/.../Imputation_tutorial/FImpute_output_files/offspring_ids.txt")
 #Add the correlation column to the "off_ids" data frame
 off_ids$correlation <- corr_animals$correlation
 #Sort individuals by correlation column
